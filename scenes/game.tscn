@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bl6bdpm3goh84"]
+[gd_scene load_steps=14 format=4 uid="uid://bl6bdpm3goh84"]
 
 [ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://scenes/player.tscn" id="1_04fye"]
 [ext_resource type="PackedScene" uid="uid://dac2u37fdcris" path="res://scenes/slime.tscn" id="1_msmil"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxw1we7yn3jif" path="res://scenes/platform.tscn" id="3_ynciy"]
 [ext_resource type="PackedScene" uid="uid://cp2e6hocxms15" path="res://scenes/coin.tscn" id="4_uoyva"]
 [ext_resource type="PackedScene" uid="uid://dm22amussai1e" path="res://scenes/killzone.tscn" id="5_hbvy5"]
+[ext_resource type="FontFile" uid="uid://dcuws6rx6bue4" path="res://assets/fonts/PixelOperator8.ttf" id="7_w3303"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ktb8p"]
 texture = ExtResource("2_8aphj")
@@ -263,5 +264,14 @@ libraries = {
 "": SubResource("AnimationLibrary_k3amm")
 }
 autoplay = "move"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 73.0
+offset_top = -45.0
+offset_right = 126.0
+offset_bottom = -13.0
+theme_override_fonts/font = ExtResource("7_w3303")
+theme_override_font_sizes/font_size = 24
+text = "https://youtu.be/LOhfqjmasi0?si=OqjSF3hk-uIF5IZV&t=3751"
 
 [connection signal="body_entered" from="Coins/Coin3" to="Player" method="_on_coin_3_body_entered"]
