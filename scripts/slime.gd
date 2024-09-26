@@ -1,5 +1,5 @@
 extends Node2D
-#https://youtu.be/LOhfqjmasi0?si=bhkop6fPXXsjsRlE&t=3067 Where I'm at. Thanks Brackeys :3
+
 const SPEED = 60
 @onready var raycast_l: RayCast2D = $RaycastL
 @onready var raycast_r: RayCast2D = $RaycastR

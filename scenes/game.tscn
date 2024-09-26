@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://bl6bdpm3goh84"]
+[gd_scene load_steps=15 format=4 uid="uid://bl6bdpm3goh84"]
 
 [ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://scenes/player.tscn" id="1_04fye"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_er1j5"]
 [ext_resource type="PackedScene" uid="uid://dac2u37fdcris" path="res://scenes/slime.tscn" id="1_msmil"]
 [ext_resource type="Texture2D" uid="uid://bxbx67mxug4yn" path="res://assets/sprites/world_tileset.png" id="2_8aphj"]
 [ext_resource type="PackedScene" uid="uid://cxw1we7yn3jif" path="res://scenes/platform.tscn" id="3_ynciy"]
@@ -215,6 +216,10 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_er1j5")
+
 [node name="Slime" parent="." instance=ExtResource("1_msmil")]
 position = Vector2(155, 32)
 
@@ -272,6 +277,6 @@ offset_right = 126.0
 offset_bottom = -13.0
 theme_override_fonts/font = ExtResource("7_w3303")
 theme_override_font_sizes/font_size = 24
-text = "https://youtu.be/LOhfqjmasi0?si=OqjSF3hk-uIF5IZV&t=3751"
+text = ":3c"
 
 [connection signal="body_entered" from="Coins/Coin3" to="Player" method="_on_coin_3_body_entered"]
