@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://scenes/player.tscn" id="1_04fye"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_er1j5"]
-[ext_resource type="PackedScene" uid="uid://cl258gsfnevsr" path="res://scenes/glorb.tscn" id="2_anpf5"]
+[ext_resource type="PackedScene" uid="uid://cl258gsfnevsr" path="res://enemies/plob.tscn" id="2_anpf5"]
 [ext_resource type="FontFile" uid="uid://dcuws6rx6bue4" path="res://assets/fonts/PixelOperator8.ttf" id="7_w3303"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_74j0l"]
