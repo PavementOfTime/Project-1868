@@ -4,6 +4,8 @@ extends Node2D
 
 
 const SPEED = 40
+var health = 10
+var iframes = 0
 var canMove = true
 
 # Called when the node enters the scene tree for the first time.
@@ -20,10 +22,17 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	canMove = false
 	wa.play("idle")
-	print("a")
 	
 
 # Called when a node on layers 1 or 2 exit
 func _on_body_exited(body: Node2D) -> void:
 	canMove = true
 	wa.play("walk")
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if(iframes <= 0):
+		health -= 1
+		print(health)
+	if health == 0:
+		queue_free() #replace with a propper death system.
