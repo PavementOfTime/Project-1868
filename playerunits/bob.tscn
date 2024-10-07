@@ -1,18 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl258gsfnevsr"]
+[gd_scene load_steps=9 format=3 uid="uid://bplvnjyykhl6"]
 
-[ext_resource type="Script" path="res://scripts/plob.gd" id="1_dbkfh"]
-[ext_resource type="Texture2D" uid="uid://c5nadh01xx1s4" path="res://assets/sprites/plob.png" id="2_asf6b"]
+[ext_resource type="Script" path="res://scripts/bob.gd" id="1_denb5"]
+[ext_resource type="Texture2D" uid="uid://c5nadh01xx1s4" path="res://assets/sprites/plob.png" id="2_83p4a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07v7q"]
-atlas = ExtResource("2_asf6b")
+atlas = ExtResource("2_83p4a")
 region = Rect2(0, 0, 130, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhkbq"]
-atlas = ExtResource("2_asf6b")
+atlas = ExtResource("2_83p4a")
 region = Rect2(130, 0, 130, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb710"]
-atlas = ExtResource("2_asf6b")
+atlas = ExtResource("2_83p4a")
 region = Rect2(0, 160, 130, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_abfh2"]
@@ -43,8 +43,8 @@ size = Vector2(14, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjcyb"]
 size = Vector2(27, 15)
 
-[node name="plob" type="Node2D"]
-script = ExtResource("1_dbkfh")
+[node name="bob" type="Node2D"]
+script = ExtResource("1_denb5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -53,10 +53,9 @@ position = Vector2(-0.0580986, -7.5)
 scale = Vector2(0.0914139, 0.0914139)
 sprite_frames = SubResource("SpriteFrames_abfh2")
 animation = &"walk"
-frame_progress = 0.812335
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_mask = 8
+collision_mask = 16
 
 [node name="HitBox" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -7.5)
@@ -66,10 +65,10 @@ shape = SubResource("RectangleShape2D_ajx0l")
 collision_mask = 3
 
 [node name="AttackBox" type="CollisionShape2D" parent="AttackBox"]
-position = Vector2(10.5, -7.5)
+position = Vector2(-9.5, -7.5)
 shape = SubResource("RectangleShape2D_jjcyb")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
-[connection signal="body_entered" from="AttackBox" to="." method="_on_attack_box_body_entered"]
 [connection signal="body_entered" from="AttackBox" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="AttackBox" to="." method="_on_attack_box_body_entered"]
 [connection signal="body_exited" from="AttackBox" to="." method="_on_body_exited"]
