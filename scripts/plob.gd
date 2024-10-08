@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const speed = 40 #maybe make this script ambidextirous or whatever
 
-@export var player: Node2D
+@export var a: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
 func _physics_process(_delta: float) -> void:

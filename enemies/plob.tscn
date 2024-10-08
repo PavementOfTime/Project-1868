@@ -28,7 +28,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oacf1"]
 radius = 50.5859
 
-[node name="plob" type="CharacterBody2D"]
+[node name="plob" type="CharacterBody2D" node_paths=PackedStringArray("player")]
 position = Vector2(0, -0.00703883)
 scale = Vector2(0.119998, 0.119998)
 collision_layer = 2
@@ -36,6 +36,7 @@ collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_dbkfh")
+player = NodePath(".")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -62.6916)
@@ -48,10 +49,10 @@ position = Vector2(0, -64.1515)
 shape = SubResource("CircleShape2D_oacf1")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
+path_postprocessing = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.75
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
