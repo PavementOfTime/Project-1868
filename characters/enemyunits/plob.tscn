@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdk00yl08kwvd"]
+[gd_scene load_steps=10 format=3 uid="uid://bdk00yl08kwvd"]
 
-[ext_resource type="Script" path="res://scripts/plob.gd" id="1_dbkfh"]
-[ext_resource type="Texture2D" uid="uid://c5nadh01xx1s4" path="res://assets/sprites/plob.png" id="2_asf6b"]
+[ext_resource type="Script" path="res://scripts/plob.gd" id="1_phect"]
+[ext_resource type="Texture2D" uid="uid://c5nadh01xx1s4" path="res://assets/sprites/plob.png" id="2_5qam0"]
+[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="3_ato04"]
+[ext_resource type="Script" path="res://scripts/HitboxComponent.gd" id="4_q61kv"]
+[ext_resource type="Script" path="res://scripts/RangeComponent.gd" id="5_ak0ah"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otcuf"]
-atlas = ExtResource("2_asf6b")
+atlas = ExtResource("2_5qam0")
 region = Rect2(130, 0, 130, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7jg5"]
-atlas = ExtResource("2_asf6b")
+atlas = ExtResource("2_5qam0")
 region = Rect2(0, 160, 130, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nas77"]
@@ -35,7 +38,7 @@ collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_dbkfh")
+script = ExtResource("1_phect")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -62.6916)
@@ -53,5 +56,22 @@ path_postprocessing = 1
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.75
 autostart = true
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("3_ato04")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("4_q61kv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -64.1515)
+shape = SubResource("CircleShape2D_oacf1")
+
+[node name="RangeComponent" type="Area2D" parent="."]
+script = ExtResource("5_ak0ah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent"]
+position = Vector2(0, -64.1515)
+shape = SubResource("CircleShape2D_oacf1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

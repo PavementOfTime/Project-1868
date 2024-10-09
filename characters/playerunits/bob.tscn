@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxc74dwxxrjbe"]
+
+[ext_resource type="Script" path="res://assets/sprites/bob.gd" id="1_t7m7s"]
+[ext_resource type="Texture2D" uid="uid://c5nadh01xx1s4" path="res://assets/sprites/plob.png" id="2_bqt22"]
+[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="3_myi34"]
+[ext_resource type="Script" path="res://scripts/HitboxComponent.gd" id="4_tfytj"]
+[ext_resource type="Script" path="res://scripts/RangeComponent.gd" id="5_wa5le"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otcuf"]
+atlas = ExtResource("2_bqt22")
+region = Rect2(130, 0, 130, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7jg5"]
+atlas = ExtResource("2_bqt22")
+region = Rect2(0, 160, 130, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nas77"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otcuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7jg5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oacf1"]
+radius = 50.5859
+
+[node name="plob" type="CharacterBody2D"]
+position = Vector2(0, -0.00703883)
+scale = Vector2(0.119998, 0.119998)
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_t7m7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -62.6916)
+scale = Vector2(0.782063, 0.782063)
+sprite_frames = SubResource("SpriteFrames_nas77")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -64.1515)
+shape = SubResource("CircleShape2D_oacf1")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("3_myi34")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("4_tfytj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -64.1515)
+shape = SubResource("CircleShape2D_oacf1")
+
+[node name="RangeComponent" type="Area2D" parent="."]
+script = ExtResource("5_wa5le")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent"]
+position = Vector2(0, -64.1515)
+shape = SubResource("CircleShape2D_oacf1")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="RangeComponent" to="." method="_on_range_component_body_entered"]
