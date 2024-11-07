@@ -59,6 +59,7 @@ autostart = true
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("3_ato04")
+MAX_HEALTH = null
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 script = ExtResource("4_q61kv")

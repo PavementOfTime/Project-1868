@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name oldPlayer
+class_name Player
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 const speed = 100
