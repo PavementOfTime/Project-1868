@@ -275,8 +275,9 @@ theme_override_fonts/font = ExtResource("7_w3303")
 theme_override_font_sizes/font_size = 24
 text = ":3c"
 
-[node name="plob" parent="." instance=ExtResource("2_anpf5")]
+[node name="plob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_anpf5")]
 position = Vector2(-12, 0)
+player = NodePath("../Player")
 
 [node name="EnemyHandler" type="Node" parent="."]
 
