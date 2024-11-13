@@ -3,7 +3,7 @@ class_name Enemy
 
 const speed: int = 40
 
-@export var player: Player
+@onready var player: Player#get_tree.get_first_node_in_group("Player")
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
 func _physics_process(_delta: float) -> void:
@@ -14,6 +14,7 @@ func _physics_process(_delta: float) -> void:
 
 func makepath() -> void:
 	nav_agent.target_position = player.global_position
+	
 
 func _on_timer_timeout() -> void:
 	makepath()
