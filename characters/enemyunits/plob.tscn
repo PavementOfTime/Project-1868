@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdk00yl08kwvd"]
+[gd_scene load_steps=11 format=3 uid="uid://bdk00yl08kwvd"]
 
 [ext_resource type="Script" path="res://scripts/plob.gd" id="1_phect"]
 [ext_resource type="Texture2D" uid="uid://c5nadh01xx1s4" path="res://assets/sprites/plob.png" id="2_5qam0"]
@@ -31,11 +31,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oacf1"]
 radius = 50.5859
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_irgjk"]
+radius = 75.2311
+
 [node name="plob" type="CharacterBody2D"]
 position = Vector2(0, -0.00703883)
 scale = Vector2(0.119998, 0.119998)
-collision_layer = 2
-collision_mask = 3
+collision_layer = 3
+collision_mask = 5
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_phect")
@@ -59,7 +62,6 @@ autostart = true
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("3_ato04")
-MAX_HEALTH = null
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 script = ExtResource("4_q61kv")
@@ -69,10 +71,12 @@ position = Vector2(0, -64.1515)
 shape = SubResource("CircleShape2D_oacf1")
 
 [node name="RangeComponent" type="Area2D" parent="."]
+collision_mask = 3
 script = ExtResource("5_ak0ah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent"]
 position = Vector2(0, -64.1515)
-shape = SubResource("CircleShape2D_oacf1")
+shape = SubResource("CircleShape2D_irgjk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="RangeComponent" to="." method="_on_range_component_body_entered"]

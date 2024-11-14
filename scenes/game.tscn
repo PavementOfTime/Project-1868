@@ -1,11 +1,11 @@
 [gd_scene load_steps=22 format=4 uid="uid://bl6bdpm3goh84"]
 
-[ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://scenes/player.tscn" id="1_04fye"]
+[ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://characters/playerunits/player.tscn" id="1_04fye"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_er1j5"]
 [ext_resource type="PackedScene" uid="uid://bdk00yl08kwvd" path="res://characters/enemyunits/plob.tscn" id="2_anpf5"]
 [ext_resource type="Texture2D" uid="uid://1j3ol46yos1d" path="res://assets/sprites/4_Seasons_Ground_Tiles.png" id="5_17gah"]
 [ext_resource type="Texture2D" uid="uid://c85shcx8llv2b" path="res://assets/sprites/4_Seasons_Trees.png" id="6_nx6hj"]
-[ext_resource type="PackedScene" uid="uid://d04ikadthbakt" path="res://scenes/Spawner.tscn" id="7_dndfl"]
+[ext_resource type="PackedScene" uid="uid://d04ikadthbakt" path="res://scenes/Spawner.tscn" id="7_3753u"]
 [ext_resource type="FontFile" uid="uid://dcuws6rx6bue4" path="res://assets/fonts/PixelOperator8.ttf" id="7_w3303"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_snsa6"]
@@ -281,4 +281,4 @@ player = NodePath("../Player")
 
 [node name="EnemyHandler" type="Node" parent="."]
 
-[node name="Spawner" parent="." instance=ExtResource("7_dndfl")]
+[node name="Spawner" parent="." instance=ExtResource("7_3753u")]

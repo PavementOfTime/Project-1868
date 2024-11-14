@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://dfb0rhp7irn31"]
+[gd_scene load_steps=30 format=3 uid="uid://dfb0rhp7irn31"]
 
 [ext_resource type="Texture2D" uid="uid://cn4xel178xmvc" path="res://assets/sprites/knight.png" id="1_r85hb"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_spber"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="3_3yaus"]
 [ext_resource type="Script" path="res://scripts/HitboxComponent.gd" id="4_p0wda"]
+[ext_resource type="PackedScene" uid="uid://cwhth2msq5wue" path="res://scenes/gun.tscn" id="5_gjeo6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7yspm"]
 atlas = ExtResource("1_r85hb")
@@ -177,7 +178,7 @@ radius = 4.12311
 size = Vector2(10, 14)
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_spber")
 
@@ -189,6 +190,7 @@ autoplay = "idle"
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("3_3yaus")
+MAX_HEALTH = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
@@ -200,3 +202,6 @@ script = ExtResource("4_p0wda")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_b0f2c")
+
+[node name="Gun" parent="." instance=ExtResource("5_gjeo6")]
+position = Vector2(0, -6)

@@ -55,6 +55,12 @@ down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Ground Layer/Mask"
+2d_physics/layer_2="Enemy Layer / Player Mask"
+2d_physics/layer_3="Player Layer / Enemy Mask"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
