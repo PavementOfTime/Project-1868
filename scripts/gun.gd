@@ -9,3 +9,9 @@ func _physics_process(delta: float) -> void:
 
 func shoot():
 	const BULLET = preload("res://scenes/bullet.tscn")
+	var new_bullet = BULLET.instantiate()
+	new_bullet.global_position = $WeaponPivot/Weapon/ShootingPoint.position
+	$WeaponPivot/Weapon/ShootingPoint.add_child(new_bullet)
+
+func _on_timer_timeout() -> void:
+	shoot()
