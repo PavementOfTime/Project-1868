@@ -8,10 +8,10 @@ var health : float
 
 func _ready() -> void:
 	health = MAX_HEALTH
-	print("My health is: ")
-	print(health)
 func damage(attack: Attack) -> void:
 	health -= attack.attack_damage
+	print("My health is now: ")
+	print(health)
 	if health <= 0:
 		get_parent().queue_free()
 

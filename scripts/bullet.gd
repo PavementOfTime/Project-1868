@@ -1,7 +1,7 @@
 extends Area2D
 
 var life = 0
-
+#var bullet_direction
 func _physics_process(delta: float) -> void:
 	const SPEED = 500
 	const RANGE = 510
@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 
-func _on_body_entered(body: Enemy) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	queue_free()
 	if body.has_node("HealthComponent"):
 		var attack = Attack.new()
