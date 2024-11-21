@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-const speed: int = 40
+const speed: int = 20
 
 @export var player: Player#get_tree.get_first_node_in_group("Player")
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D

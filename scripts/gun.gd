@@ -1,12 +1,14 @@
 extends Area2D
 var auto = true
 func targeting() -> void:
-	if Input.is_key_pressed(KEY_CTRL):
+	if Input.is_action_just_pressed("targeting"):
 		auto = !auto
 		print("Changing Targeting...")
 
-func _physics_process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	targeting()
+
+func _physics_process(_delta: float) -> void:
 	if(auto):
 		var enemies_in_range = get_overlapping_bodies()
 		if (enemies_in_range.size() > 0) && auto:
@@ -20,7 +22,7 @@ func shoot():
 	look_at(get_global_mouse_position())
 	projectile.global_position = $WeaponPivot/Weapon/ShootingPoint.position
 	#projectile.rotation = rotation
-	$WeaponPivot/Weapon/ShootingPoint.add_child(projectile)
+	get_parent().get_parent().add_child(projectile)
 
 func _on_timer_timeout() -> void:
 	var enemies_in_range = get_overlapping_bodies()

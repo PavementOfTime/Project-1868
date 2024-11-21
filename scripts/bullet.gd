@@ -3,7 +3,7 @@ extends Area2D
 var life = 0
 #var bullet_direction
 func _physics_process(delta: float) -> void:
-	const SPEED = 500
+	const SPEED = 250
 	const RANGE = 510
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * SPEED * delta
