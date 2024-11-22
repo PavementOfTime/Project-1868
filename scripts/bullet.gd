@@ -1,12 +1,18 @@
 extends Area2D
 
 var life = 0
+const SPEED = 750
+var speed = -1
+const RANGE = 510
+
+func _ready() -> void:
+	if speed <= -1:
+		speed = SPEED
 #var bullet_direction
 func _physics_process(delta: float) -> void:
-	const SPEED = 250
-	const RANGE = 510
+	
 	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * SPEED * delta
+	position += transform.x * speed * delta
 	life += SPEED * delta
 	if life > RANGE:
 		queue_free()
