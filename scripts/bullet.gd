@@ -1,7 +1,7 @@
 extends Area2D
 
 var life = 0
-const SPEED = 750
+const SPEED = 500
 var speed = -1
 const RANGE = 510
 
@@ -10,8 +10,6 @@ func _ready() -> void:
 		speed = SPEED
 #var bullet_direction
 func _physics_process(delta: float) -> void:
-	
-	var direction = Vector2.RIGHT.rotated(rotation)
 	position += transform.x * speed * delta
 	life += SPEED * delta
 	if life > RANGE:

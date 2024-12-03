@@ -1,12 +1,14 @@
 extends CharacterBody2D
 class_name Player
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_component: HealthComponent = $HealthComponent
 
-const speed = 20
+const speed = 30
 var dir : Vector2
 func _physics_process(_delta: float) -> void:
 	velocity = dir * speed
-	move_and_slide()
+	if health_component.health > 0:
+		move_and_slide()
 
 func _unhandled_input(_event: InputEvent) -> void:
 	dir.x = Input.get_axis("left", "right")
