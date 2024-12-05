@@ -1,10 +1,36 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxc74dwxxrjbe"]
+[gd_scene load_steps=10 format=3 uid="uid://bj14dknbasr6w"]
 
-[ext_resource type="Script" path="res://scripts/bob.gd" id="1_t7m7s"]
 [ext_resource type="Texture2D" uid="uid://c5nadh01xx1s4" path="res://assets/sprites/plob.png" id="2_bqt22"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="3_myi34"]
 [ext_resource type="Script" path="res://scripts/HitboxComponent.gd" id="4_tfytj"]
 [ext_resource type="Script" path="res://scripts/RangeComponent.gd" id="5_wa5le"]
+
+[sub_resource type="GDScript" id="GDScript_y0mrm"]
+script/source = "extends CharacterBody2D
+class_name Friendly
+
+const speed: int = 40
+
+@export var player: Node2D
+@onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+
+func _physics_process(_delta: float) -> void:
+	var dir = to_local(nav_agent.get_next_path_position()).normalized()
+	velocity = dir * speed
+	move_and_slide()
+
+func makepath() -> void:
+	nav_agent.target_position = player.global_position
+
+func _on_timer_timeout() -> void:
+	makepath()
+
+# :3
+
+
+func _on_range_component_body_entered(body: Node2D) -> void:
+	pass # Add attack animation
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otcuf"]
 atlas = ExtResource("2_bqt22")
@@ -38,7 +64,7 @@ collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_t7m7s")
+script = SubResource("GDScript_y0mrm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -62.6916)

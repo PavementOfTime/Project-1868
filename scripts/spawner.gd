@@ -7,3 +7,5 @@ func _on_timeout() -> void: #YESSSS I GOT IT TO WORK :D
 	plo.position = Vector2(randf_range(-120,-18), randf_range(120,18))
 	plo.player = player
 	add_child(plo)
+	if player.visible == false:
+		stop()

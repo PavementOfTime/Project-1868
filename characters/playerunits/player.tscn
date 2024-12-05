@@ -177,28 +177,29 @@ radius = 4.12311
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0f2c"]
 size = Vector2(10, 14)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_spber")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["player"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_fmtq6")
 animation = &"jump"
 autoplay = "idle"
 
-[node name="HealthComponent" type="Node2D" parent="." groups=["player"]]
+[node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("3_3yaus")
+MAX_HEALTH = 3.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_5wnc3")
 
 [node name="HitboxComponent" type="Area2D" parent="." groups=["player"]]
 script = ExtResource("4_p0wda")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" groups=["player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_b0f2c")
 

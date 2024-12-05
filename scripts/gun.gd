@@ -1,5 +1,5 @@
 extends Area2D
-var auto = true
+var auto = false
 @onready var health_component: HealthComponent = $"../HealthComponent"
 func targeting() -> void:
 	if Input.is_action_just_pressed("targeting"):

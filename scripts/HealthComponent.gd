@@ -10,7 +10,7 @@ func _ready() -> void:
 func damage(attack: Attack) -> void:
 	health -= attack.attack_damage
 	if health <= 0:
-		if(get_parent().is_in_group("player")):
+		if(get_parent().name == ("Player")):
 			get_parent().visible = false
 		else:
 			get_parent().queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bl6bdpm3goh84"]
+[gd_scene load_steps=23 format=4 uid="uid://bl6bdpm3goh84"]
 
 [ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://characters/playerunits/player.tscn" id="1_04fye"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_er1j5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c85shcx8llv2b" path="res://assets/sprites/4_Seasons_Trees.png" id="6_nx6hj"]
 [ext_resource type="PackedScene" uid="uid://d04ikadthbakt" path="res://scenes/Spawner.tscn" id="7_3753u"]
 [ext_resource type="FontFile" uid="uid://dcuws6rx6bue4" path="res://assets/fonts/PixelOperator8.ttf" id="7_w3303"]
+[ext_resource type="PackedScene" uid="uid://b23tjpo3e675n" path="res://characters/enemyunits/boss.tscn" id="8_hbk2g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_snsa6"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -74,7 +75,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdjj2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8kpc"]
 texture = ExtResource("5_17gah")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -225,7 +226,7 @@ texture = ExtResource("5_17gah")
 6:11/0 = 0
 6:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mnfc6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yus3c"]
 texture = ExtResource("6_nx6hj")
 0:0/size_in_atlas = Vector2i(2, 3)
 0:0/0 = 0
@@ -243,8 +244,8 @@ texture = ExtResource("6_nx6hj")
 [sub_resource type="TileSet" id="TileSet_iq8jq"]
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
-sources/1 = SubResource("TileSetAtlasSource_sdjj2")
-sources/2 = SubResource("TileSetAtlasSource_mnfc6")
+sources/1 = SubResource("TileSetAtlasSource_o8kpc")
+sources/2 = SubResource("TileSetAtlasSource_yus3c")
 
 [node name="Game" type="Node2D"]
 
@@ -281,3 +282,7 @@ player = NodePath("../Player")
 [node name="EnemyHandler" type="Node" parent="."]
 
 [node name="Spawner" parent="." instance=ExtResource("7_3753u")]
+
+[node name="boss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_hbk2g")]
+position = Vector2(-160, -88.007)
+player = NodePath("../Player")
