@@ -3,7 +3,7 @@ class_name Player
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_component: HealthComponent = $HealthComponent
 
-const speed = 30
+const speed = 80
 var dir : Vector2
 func _physics_process(_delta: float) -> void:
 	velocity = dir * speed

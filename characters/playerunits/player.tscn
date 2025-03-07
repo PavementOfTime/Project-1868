@@ -1,25 +1,26 @@
-[gd_scene load_steps=30 format=3 uid="uid://dfb0rhp7irn31"]
+[gd_scene load_steps=31 format=3 uid="uid://dfb0rhp7irn31"]
 
 [ext_resource type="Texture2D" uid="uid://cn4xel178xmvc" path="res://assets/sprites/knight.png" id="1_r85hb"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_spber"]
-[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="3_3yaus"]
-[ext_resource type="Script" path="res://scripts/HitboxComponent.gd" id="4_p0wda"]
+[ext_resource type="Script" uid="uid://cqhbw34ensbbt" path="res://scripts/player.gd" id="1_spber"]
+[ext_resource type="Texture2D" uid="uid://dcdsgqvyqqrww" path="res://assets/sprites/knight-1.png(1).png" id="2_xk5hd"]
+[ext_resource type="Script" uid="uid://blww35njy8eu" path="res://scripts/HealthComponent.gd" id="3_3yaus"]
+[ext_resource type="Script" uid="uid://b4cp677io5glu" path="res://scripts/HitboxComponent.gd" id="4_p0wda"]
 [ext_resource type="PackedScene" uid="uid://cwhth2msq5wue" path="res://scenes/gun.tscn" id="5_gjeo6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7yspm"]
-atlas = ExtResource("1_r85hb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mplno"]
+atlas = ExtResource("2_xk5hd")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aotcd"]
-atlas = ExtResource("1_r85hb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xcwy"]
+atlas = ExtResource("2_xk5hd")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pj4p7"]
-atlas = ExtResource("1_r85hb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rovfq"]
+atlas = ExtResource("2_xk5hd")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_opmgx"]
-atlas = ExtResource("1_r85hb")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mcdi"]
+atlas = ExtResource("2_xk5hd")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hotjb"]
@@ -94,16 +95,16 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7yspm")
+"texture": SubResource("AtlasTexture_mplno")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aotcd")
+"texture": SubResource("AtlasTexture_8xcwy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pj4p7")
+"texture": SubResource("AtlasTexture_rovfq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_opmgx")
+"texture": SubResource("AtlasTexture_0mcdi")
 }],
 "loop": true,
 "name": &"idle",
@@ -185,7 +186,7 @@ script = ExtResource("1_spber")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_fmtq6")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="HealthComponent" type="Node2D" parent="."]
@@ -205,3 +206,5 @@ shape = SubResource("RectangleShape2D_b0f2c")
 
 [node name="Gun" parent="." instance=ExtResource("5_gjeo6")]
 position = Vector2(0, -9)
+
+[connection signal="tree_exited" from="Gun" to="." method="_on_gun_tree_exited"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d04ikadthbakt"]
 
-[ext_resource type="Script" path="res://scripts/spawner.gd" id="1_otqxd"]
+[ext_resource type="Script" uid="uid://dkgvi1nqlf4a6" path="res://scripts/spawner.gd" id="1_otqxd"]
 
 [node name="Spawner" type="Node2D"]
 
