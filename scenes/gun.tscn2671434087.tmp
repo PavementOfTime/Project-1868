@@ -17,7 +17,7 @@ position = Vector2(0, -2)
 
 [node name="ShortTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.1
+wait_time = 0.225
 one_shot = true
 
 [node name="Timer" type="Timer" parent="."]

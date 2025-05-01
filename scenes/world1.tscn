@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c85shcx8llv2b" path="res://assets/sprites/4_Seasons_Trees.png" id="4_1msdb"]
 [ext_resource type="FontFile" uid="uid://dcuws6rx6bue4" path="res://assets/fonts/PixelOperator8.ttf" id="5_cqo20"]
 [ext_resource type="PackedScene" uid="uid://bdk00yl08kwvd" path="res://characters/enemyunits/plob.tscn" id="6_f4ck5"]
-[ext_resource type="PackedScene" uid="uid://d04ikadthbakt" path="res://scenes/Spawner.tscn" id="7_o24d1"]
+[ext_resource type="PackedScene" uid="uid://cxkh71fc73wic" path="res://characters/enemyunits/blob.tscn" id="7_o24d1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_snsa6"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -287,4 +287,6 @@ text = "Watch Out!"
 position = Vector2(132, 54)
 player = NodePath("../Player")
 
-[node name="Spawner" parent="." instance=ExtResource("7_o24d1")]
+[node name="blob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_o24d1")]
+position = Vector2(-115, -67.007)
+player = NodePath("../Player")

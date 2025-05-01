@@ -127,8 +127,9 @@ script = ExtResource("1_spber")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_fmtq6")
-animation = &"idle"
+animation = &"run"
 autoplay = "victory"
+frame_progress = 0.141781
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("3_3yaus")

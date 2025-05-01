@@ -1,52 +1,63 @@
-[gd_scene load_steps=10 format=3 uid="uid://b23tjpo3e675n"]
+[gd_scene load_steps=11 format=3 uid="uid://cxkh71fc73wic"]
 
-[ext_resource type="Script" uid="uid://chykbq7w5d5ij" path="res://scripts/plob.gd" id="1_ouvfl"]
-[ext_resource type="Texture2D" uid="uid://c5nadh01xx1s4" path="res://assets/sprites/plob.png" id="2_enhcy"]
-[ext_resource type="Script" uid="uid://blww35njy8eu" path="res://scripts/HealthComponent.gd" id="3_qni8m"]
-[ext_resource type="Script" uid="uid://b4cp677io5glu" path="res://scripts/HitboxComponent.gd" id="4_glyb8"]
+[ext_resource type="Script" uid="uid://chykbq7w5d5ij" path="res://scripts/plob.gd" id="1_wf1aq"]
+[ext_resource type="Texture2D" uid="uid://cqfjaf4iynyy4" path="res://assets/sprites/pirate_spritesheet.png" id="2_wf1aq"]
+[ext_resource type="Script" uid="uid://blww35njy8eu" path="res://scripts/HealthComponent.gd" id="3_kynhy"]
+[ext_resource type="Script" uid="uid://b4cp677io5glu" path="res://scripts/HitboxComponent.gd" id="4_2cua8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_otcuf"]
-atlas = ExtResource("2_enhcy")
-region = Rect2(130, 0, 130, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kthnx"]
+atlas = ExtResource("2_wf1aq")
+region = Rect2(0, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7jg5"]
-atlas = ExtResource("2_enhcy")
-region = Rect2(0, 160, 130, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kynhy"]
+atlas = ExtResource("2_wf1aq")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cua8"]
+atlas = ExtResource("2_wf1aq")
+region = Rect2(0, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nas77"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_otcuf")
+"texture": SubResource("AtlasTexture_kthnx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e7jg5")
+"texture": SubResource("AtlasTexture_kynhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kthnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cua8")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oacf1"]
-radius = 54.8762
+radius = 141.791
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5vfl"]
-radius = 72.2695
+radius = 175.569
 
-[node name="boss" type="CharacterBody2D"]
+[node name="blob" type="CharacterBody2D"]
 position = Vector2(0, -0.00703883)
-scale = Vector2(0.599998, 0.599998)
+scale = Vector2(0.119998, 0.119998)
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_ouvfl")
+script = ExtResource("1_wf1aq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 3.9762)
-scale = Vector2(0.782063, 0.782063)
+scale = Vector2(11.1113, 11.1113)
 sprite_frames = SubResource("SpriteFrames_nas77")
 autoplay = "default"
+frame_progress = 0.124339
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.51632)
@@ -61,11 +72,12 @@ autostart = true
 
 [node name="HealthComponent" type="Node2D" parent="."]
 position = Vector2(0, 66.6678)
-script = ExtResource("3_qni8m")
+script = ExtResource("3_kynhy")
+MAX_HEALTH = 10.0
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 position = Vector2(0, 66.6678)
-script = ExtResource("4_glyb8")
+script = ExtResource("4_2cua8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -64.0311)
