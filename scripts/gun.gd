@@ -11,10 +11,14 @@ func _physics_process(_delta: float) -> void:
 	#else:
 	look_at(get_global_mouse_position())
 	if Input.is_action_pressed("quickfire") && able():
-		shoot()
+		shoot() #todo: add ammo and adjust timer.
 		timer.start()
 	if Input.is_action_just_pressed("shoot") && able():
 		shoot()
+	if Input.is_action_just_pressed("slash") && able():
+		print("🤺⚔️")
+
+
 
 func able() -> bool:
 	var quickfired = (timer.time_left > 0)

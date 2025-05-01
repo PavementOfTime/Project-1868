@@ -5,10 +5,10 @@ const speed: int = 20
 @export var player: Player#get_tree.get_first_node_in_group("Player")
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var hp: HealthComponent = $HealthComponent
-var isHeDeadYet = false
+var isItDeadYet = false
 
 func _physics_process(_delta: float) -> void:
-	if !isHeDeadYet:
+	if !isItDeadYet:
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = dir * speed
 		move_and_slide()
@@ -21,7 +21,7 @@ func _on_timer_timeout() -> void:
 	if player.health_component.health > 0:
 		makepath()
 	else:
-		isHeDeadYet = true
+		isItDeadYet = true
 # :3
 
 func _on_hitbox_component_area_entered(area: Area2D) -> void:
