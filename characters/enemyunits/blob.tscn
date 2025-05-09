@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxkh71fc73wic"]
+[gd_scene load_steps=13 format=3 uid="uid://cxkh71fc73wic"]
 
 [ext_resource type="Script" uid="uid://chykbq7w5d5ij" path="res://scripts/plob.gd" id="1_wf1aq"]
 [ext_resource type="Texture2D" uid="uid://cqfjaf4iynyy4" path="res://assets/sprites/pirate_spritesheet.png" id="2_wf1aq"]
 [ext_resource type="Script" uid="uid://blww35njy8eu" path="res://scripts/HealthComponent.gd" id="3_kynhy"]
 [ext_resource type="Script" uid="uid://b4cp677io5glu" path="res://scripts/HitboxComponent.gd" id="4_2cua8"]
+[ext_resource type="PackedScene" uid="uid://cw4avid66tebo" path="res://scenes/egun.tscn" id="5_kthnx"]
+[ext_resource type="Script" uid="uid://eyoxthsyir2r" path="res://scripts/egun.gd" id="6_kynhy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kthnx"]
 atlas = ExtResource("2_wf1aq")
@@ -82,6 +84,9 @@ script = ExtResource("4_2cua8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -64.0311)
 shape = SubResource("CircleShape2D_e5vfl")
+
+[node name="eGun" parent="." instance=ExtResource("5_kthnx")]
+script = ExtResource("6_kynhy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="HitboxComponent" to="." method="_on_hitbox_component_area_entered"]

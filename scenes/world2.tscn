@@ -277,10 +277,12 @@ text = ":3c"
 position = Vector2(132, 54)
 player = NodePath("../Player")
 
-[node name="plob2" parent="." instance=ExtResource("6_hvnw1")]
+[node name="plob2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_hvnw1")]
 position = Vector2(-178, 51.993)
+player = NodePath("../Player")
 
-[node name="plob3" parent="." instance=ExtResource("6_hvnw1")]
+[node name="plob3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_hvnw1")]
 position = Vector2(-168, -101)
+player = NodePath("../Player")
 
 [node name="EnemyHandler" type="Node" parent="."]

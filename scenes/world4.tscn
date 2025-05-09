@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=4 uid="uid://bl6bdpm3goh84"]
+[gd_scene load_steps=21 format=4 uid="uid://beeb8t57mmmu6"]
 
-[ext_resource type="Script" uid="uid://d20emun75l5md" path="res://scripts/game_manager.gd" id="1_o24d1"]
-[ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://characters/playerunits/player.tscn" id="2_rli88"]
-[ext_resource type="Texture2D" uid="uid://1j3ol46yos1d" path="res://assets/sprites/4_Seasons_Ground_Tiles.png" id="3_62ogi"]
-[ext_resource type="Texture2D" uid="uid://c85shcx8llv2b" path="res://assets/sprites/4_Seasons_Trees.png" id="4_1msdb"]
-[ext_resource type="FontFile" uid="uid://dcuws6rx6bue4" path="res://assets/fonts/PixelOperator8.ttf" id="5_cqo20"]
-[ext_resource type="PackedScene" uid="uid://bdk00yl08kwvd" path="res://characters/enemyunits/plob.tscn" id="6_gt337"]
+[ext_resource type="Script" uid="uid://d20emun75l5md" path="res://scripts/game_manager.gd" id="1_wu5vs"]
+[ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://characters/playerunits/player.tscn" id="2_iue8f"]
+[ext_resource type="Texture2D" uid="uid://1j3ol46yos1d" path="res://assets/sprites/4_Seasons_Ground_Tiles.png" id="3_q428g"]
+[ext_resource type="Texture2D" uid="uid://c85shcx8llv2b" path="res://assets/sprites/4_Seasons_Trees.png" id="4_bd8rq"]
+[ext_resource type="FontFile" uid="uid://dcuws6rx6bue4" path="res://assets/fonts/PixelOperator8.ttf" id="5_onmr7"]
+[ext_resource type="PackedScene" uid="uid://bdk00yl08kwvd" path="res://characters/enemyunits/plob.tscn" id="7_q428g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_snsa6"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -74,7 +74,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8kpc"]
-texture = ExtResource("3_62ogi")
+texture = ExtResource("3_q428g")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -225,7 +225,7 @@ texture = ExtResource("3_62ogi")
 6:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yus3c"]
-texture = ExtResource("4_1msdb")
+texture = ExtResource("4_bd8rq")
 0:0/size_in_atlas = Vector2i(2, 3)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -24, 16, -24, 16, 24, -16, 24)
@@ -249,9 +249,9 @@ sources/2 = SubResource("TileSetAtlasSource_yus3c")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("1_o24d1")
+script = ExtResource("1_wu5vs")
 
-[node name="Player" parent="." instance=ExtResource("2_rli88")]
+[node name="Player" parent="." instance=ExtResource("2_iue8f")]
 z_index = 5
 position = Vector2(0, -13)
 
@@ -269,7 +269,7 @@ offset_left = -443.0
 offset_top = 261.0
 offset_right = -386.0
 offset_bottom = 293.0
-theme_override_fonts/font = ExtResource("5_cqo20")
+theme_override_fonts/font = ExtResource("5_onmr7")
 theme_override_font_sizes/font_size = 24
 text = ":3c"
 
@@ -279,10 +279,58 @@ offset_left = -98.0
 offset_top = -77.0
 offset_right = 97.0
 offset_bottom = -45.0
-theme_override_fonts/font = ExtResource("5_cqo20")
+theme_override_fonts/font = ExtResource("5_onmr7")
 theme_override_font_sizes/font_size = 24
 text = "Watch Out!"
 
-[node name="plob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_gt337")]
-position = Vector2(-47, -66.007)
+[node name="plob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(-61, 83.993)
+player = NodePath("../Player")
+
+[node name="plob2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(-83, 29.993)
+player = NodePath("../Player")
+
+[node name="plob3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(42, 123.993)
+player = NodePath("../Player")
+
+[node name="plob4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(173, 65.993)
+player = NodePath("../Player")
+
+[node name="plob5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(20, 80.993)
+player = NodePath("../Player")
+
+[node name="plob6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(-105, -39.007)
+player = NodePath("../Player")
+
+[node name="plob7" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(-70, -9.00704)
+player = NodePath("../Player")
+
+[node name="plob8" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(-46, -116.007)
+player = NodePath("../Player")
+
+[node name="plob9" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(-49, -77.007)
+player = NodePath("../Player")
+
+[node name="plob10" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(56, -94.007)
+player = NodePath("../Player")
+
+[node name="plob11" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(13, -84.007)
+player = NodePath("../Player")
+
+[node name="plob12" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(49, -61.007)
+player = NodePath("../Player")
+
+[node name="plob13" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_q428g")]
+position = Vector2(138, -22.007)
 player = NodePath("../Player")

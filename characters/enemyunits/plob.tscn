@@ -1,15 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdk00yl08kwvd"]
+[gd_scene load_steps=11 format=3 uid="uid://bdk00yl08kwvd"]
 
 [ext_resource type="Script" uid="uid://chykbq7w5d5ij" path="res://scripts/plob.gd" id="1_phect"]
 [ext_resource type="Texture2D" uid="uid://c5nadh01xx1s4" path="res://assets/sprites/plob.png" id="2_5qam0"]
 [ext_resource type="Script" uid="uid://blww35njy8eu" path="res://scripts/HealthComponent.gd" id="3_ato04"]
 [ext_resource type="Script" uid="uid://b4cp677io5glu" path="res://scripts/HitboxComponent.gd" id="4_q61kv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_otcuf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh2ak"]
+atlas = ExtResource("2_5qam0")
+region = Rect2(0, 0, 130, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l771"]
 atlas = ExtResource("2_5qam0")
 region = Rect2(130, 0, 130, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7jg5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kbxl"]
 atlas = ExtResource("2_5qam0")
 region = Rect2(0, 160, 130, 160)
 
@@ -17,14 +21,20 @@ region = Rect2(0, 160, 130, 160)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_otcuf")
+"texture": SubResource("AtlasTexture_mh2ak")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e7jg5")
+"texture": SubResource("AtlasTexture_6l771")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh2ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kbxl")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oacf1"]

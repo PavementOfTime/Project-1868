@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=4 uid="uid://bl6bdpm3goh84"]
+[gd_scene load_steps=21 format=4 uid="uid://c4pihmy2sbg0d"]
 
-[ext_resource type="Script" uid="uid://d20emun75l5md" path="res://scripts/game_manager.gd" id="1_o24d1"]
-[ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://characters/playerunits/player.tscn" id="2_rli88"]
-[ext_resource type="Texture2D" uid="uid://1j3ol46yos1d" path="res://assets/sprites/4_Seasons_Ground_Tiles.png" id="3_62ogi"]
-[ext_resource type="Texture2D" uid="uid://c85shcx8llv2b" path="res://assets/sprites/4_Seasons_Trees.png" id="4_1msdb"]
-[ext_resource type="FontFile" uid="uid://dcuws6rx6bue4" path="res://assets/fonts/PixelOperator8.ttf" id="5_cqo20"]
-[ext_resource type="PackedScene" uid="uid://bdk00yl08kwvd" path="res://characters/enemyunits/plob.tscn" id="6_gt337"]
+[ext_resource type="Script" uid="uid://d20emun75l5md" path="res://scripts/game_manager.gd" id="1_04qnw"]
+[ext_resource type="PackedScene" uid="uid://dfb0rhp7irn31" path="res://characters/playerunits/player.tscn" id="2_fdswg"]
+[ext_resource type="Texture2D" uid="uid://1j3ol46yos1d" path="res://assets/sprites/4_Seasons_Ground_Tiles.png" id="3_xgtci"]
+[ext_resource type="Texture2D" uid="uid://c85shcx8llv2b" path="res://assets/sprites/4_Seasons_Trees.png" id="4_n48ge"]
+[ext_resource type="FontFile" uid="uid://dcuws6rx6bue4" path="res://assets/fonts/PixelOperator8.ttf" id="5_22ngf"]
+[ext_resource type="PackedScene" uid="uid://d04ikadthbakt" path="res://scenes/Spawner.tscn" id="6_siqt5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_snsa6"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -74,7 +74,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8kpc"]
-texture = ExtResource("3_62ogi")
+texture = ExtResource("3_xgtci")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -225,7 +225,7 @@ texture = ExtResource("3_62ogi")
 6:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yus3c"]
-texture = ExtResource("4_1msdb")
+texture = ExtResource("4_n48ge")
 0:0/size_in_atlas = Vector2i(2, 3)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -24, 16, -24, 16, 24, -16, 24)
@@ -249,9 +249,9 @@ sources/2 = SubResource("TileSetAtlasSource_yus3c")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("1_o24d1")
+script = ExtResource("1_04qnw")
 
-[node name="Player" parent="." instance=ExtResource("2_rli88")]
+[node name="Player" parent="." instance=ExtResource("2_fdswg")]
 z_index = 5
 position = Vector2(0, -13)
 
@@ -269,7 +269,7 @@ offset_left = -443.0
 offset_top = 261.0
 offset_right = -386.0
 offset_bottom = 293.0
-theme_override_fonts/font = ExtResource("5_cqo20")
+theme_override_fonts/font = ExtResource("5_22ngf")
 theme_override_font_sizes/font_size = 24
 text = ":3c"
 
@@ -279,10 +279,8 @@ offset_left = -98.0
 offset_top = -77.0
 offset_right = 97.0
 offset_bottom = -45.0
-theme_override_fonts/font = ExtResource("5_cqo20")
+theme_override_fonts/font = ExtResource("5_22ngf")
 theme_override_font_sizes/font_size = 24
 text = "Watch Out!"
 
-[node name="plob" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_gt337")]
-position = Vector2(-47, -66.007)
-player = NodePath("../Player")
+[node name="Spawner" parent="." instance=ExtResource("6_siqt5")]
