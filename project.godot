@@ -27,6 +27,10 @@ window/size/borderless=true
 
 enabled=PackedStringArray("res://addons/SpritesheetGenerator/plugin.cfg")
 
+[global_group]
+
+player=""
+
 [input]
 
 left={
